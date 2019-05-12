@@ -12,13 +12,14 @@
 #include <conio.h>
 #include <windows.h>
 #include <string.h>
-
+int TenPow(int n);
 struct res{ int num; int snum=0; res*pnext; };
-void Sum(char* num, char* num2, res** p);
+void Sum(int num, int num2, res** p);
 res* push(int num, res*phead);
 res* pop(res*phead);
 int IsEmpty(res*phead);
-void Disp_Sol(char* num,char* num2, res* p);
+void Disp_Sol(int num,int num2, res**p);
+int lenInt(int n);
 
 
 
