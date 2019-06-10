@@ -18,42 +18,8 @@ int lenInt(int n){
 	return l - 1;
 }
 
-void Div(int num, int num2){
-	int l = lenInt(num);
-	int res[900];
-	res[0] = 0;
-	int temp=num/TenPow(l);
-	int i=0;
-	int o = 1;
-	int numch=0;
-	while (temp < num2){
-		i += 1;
-		temp = num / TenPow(l - i);
-	}
-	res[o] = temp;
-	o += 1;
-	res[0]=(res[0]*10)+temp/num2;
-	res[o] = temp - (num2*(res[0]%10));
-	numch = num - (temp*TenPow(i));
-	l -= i;
-	i = 0;
-	temp = numch / TenPow(l-1);
-	while ((l - i)>0){
-		while (temp < num2){
-			i += 1;
-			temp = (res[o] * 10) + (numch / TenPow(l - i));
-			res[0] *= 10;
-		}
-		o += 1;
-		res[o] = temp;
-		o += 1;
-		res[0] += temp / num2;
-		res[o] = temp - (num2*(res[0] % 10));
-	}
-	printf("%d, ost %d\n\n", res[0],res[o]);
-	dispSol(num, num2, res,o);
-}
-void dispSol(int num, int num2, int*res,int o){
+
+void dispSol(int num, int num2, int*res, int o){
 	int i = 1;
 	printf("%d|%d\n", num, num2);
 	printf("%d", *(res + i));
@@ -62,7 +28,7 @@ void dispSol(int num, int num2, int*res,int o){
 	}
 	printf(" %d\n", *res);
 	while (i != o){
-		for (int p = 0; p < (lenInt(*(res + i)));p++){
+		for (int p = 0; p < (lenInt(*(res + i))); p++){
 			printf(" ");
 		}
 		i++;
@@ -71,5 +37,60 @@ void dispSol(int num, int num2, int*res,int o){
 		}
 		printf("%d\n", *(res + i));
 	}
+}
+
+
+void SplitToArr(int num, int*out){
+	int l = lenInt(num);
+	int temp = num;
+	for (int i = l; i > 0; i--){
+		*(out + i) = temp % 10;
+		temp /= 10;
+	}
+}
+void Div(int num, int num2){
+	int first[10];
+	int l = lenInt(num);
+	SplitToArr(num, first);
+	int temp = first[1];
+	int second;
+	int pos = 1;
+	while (temp<num2){
+		pos++;
+		temp = temp * 10 + first[pos];
+	}
+	pos++;
+	first[0] = temp / num2;
+	second = num2*first[0];
+	second = temp - second;
+	temp = ((second) * 10) + first[pos];
+	while (pos <= l){
+		while (temp<num2){
+			if (pos != l){
+				pos++;
+				temp = temp * 10 + first[pos];
+				first[0] *= 10;
+			}
+			else{
+				second = temp;
+				pos = 0;
+				break;
+			}
+		}
+		first[0] *= 10;
+		if (pos == 0){
+			break;
+		}
+		first[0] += temp / num2;
+		second = num2*(first[0]%10);
+		pos++;
+		if (pos <=l){
+			temp = ((temp - second) * 10) + first[pos];
+		}
+		else{
+			second = temp - second;
+		}
+	}
+	printf("%d, ost %d\n\n", first[0], second);
 }
 
