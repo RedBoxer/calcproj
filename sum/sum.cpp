@@ -13,11 +13,8 @@ int main()
 	scanf("%d", &num);
 	printf("Enter second number:\n>");
 	scanf("%d", &num2);
-	printf("Started to solve...\n");
-	Sum(num, num2, &p);
-	printf("Done\n");
-	printf("Started to display solution...\n");
-	Disp_Sol(num, num2, &p);
+	printf("\n");
+	Sum2(num, num2);
 	printf("Done\n");
 	getch();
 }
