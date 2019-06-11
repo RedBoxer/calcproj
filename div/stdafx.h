@@ -14,9 +14,8 @@
 #include <string.h>
 int TenPow(int n);
 int lenInt(int n);
-void dispSol(int num, int num2, int*res,int o);
 void Div(int num, int num2);
-enum purpose{ all, ans };
+void MakeSpace(int n);
 
 
 
