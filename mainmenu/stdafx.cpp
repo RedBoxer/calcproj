@@ -40,6 +40,10 @@ void SplitToArr(int num, int*out){
 
 
 void Div(int num, int num2){
+	if (num2 > num){
+		printf("Result: %d/%d", num, num2);
+		return;
+	}
 	int first[10];
 	int l = lenInt(num);
 	SplitToArr(num, first);
@@ -55,6 +59,7 @@ void Div(int num, int num2){
 	pos++;
 	first[0] = temp / num2;
 	second = num2*first[0];
+	MakeSpace(pos - (lenInt(second)+1));
 	printf("%d\n", second);
 	second = temp - second;
 	temp = ((second)* 10) + first[pos];
@@ -75,11 +80,11 @@ void Div(int num, int num2){
 		if (chk == 1){
 			break;
 		}
-		MakeSpace(pos - 2);
+		MakeSpace(pos - (lenInt(temp)));
 		printf("%d\n", temp);
 		first[0] += temp / num2;
 		second = num2*(first[0] % 10);
-		MakeSpace(pos - 2);
+		MakeSpace(pos - (lenInt(temp)));
 		printf("%d\n", second);
 		pos++;
 		if (pos <= l){
