@@ -33,13 +33,16 @@ public class DivActivity extends AppCompatActivity {
 
     public void onButton(View view){
         if(chk!=1) {
-            Div(num, num2);
+            if(num<num2){
+                Sol.append("Result: "+num+"/"+num2);
+            }else {
+                Div(num, num2);
+            }
             SolutionDisp.setText(Sol);
             BigB.setText("Exit");
             chk=1;
         }else{
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
+            finish();
         }
     }
 

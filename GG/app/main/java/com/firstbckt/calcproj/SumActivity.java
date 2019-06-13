@@ -25,6 +25,12 @@ public class SumActivity extends AppCompatActivity {
         BigB=(Button) findViewById(R.id.BigB2);
         num=Integer.valueOf(getIntent().getStringExtra("num"));
         num2=Integer.valueOf(getIntent().getStringExtra("num2"));
+        if(num<num2){
+            chk=num;
+            num=num2;
+            num2=chk;
+            chk=0;
+        }
         SolutionDisp.setText(String.valueOf(num+num2));
     }
 
@@ -35,8 +41,7 @@ public class SumActivity extends AppCompatActivity {
             BigB.setText("Exit");
             chk=1;
         }else{
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
+            finish();
         }
     }
     void Sum(int num, int num2){
