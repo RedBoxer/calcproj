@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Column Calc</string>
+    <string name="title_activity_sum">Sum</string>
+</resources>
