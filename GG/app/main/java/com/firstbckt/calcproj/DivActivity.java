@@ -64,7 +64,7 @@ public class DivActivity extends AppCompatActivity {
         }
     }
     void Div(int num,int num2){
-        int[] first= new int[10];
+        int[] first= new int[11];
         int l = String.valueOf(num).length();
         SplitToArr(num, first);
         int temp = first[1];

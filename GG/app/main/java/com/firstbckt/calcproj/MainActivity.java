@@ -1,12 +1,12 @@
 package com.firstbckt.calcproj;
 
-import android.content.Context;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,12 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText Second;
     private TextView Err;
 
-    boolean checkField(EditText Field){
-        if(Field.getText().toString().length()!=0){
-            return true;
-        }
-        return false;
-    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +29,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void Sum(View view){
         if(checkField(First)&&checkField(Second)){
-            Intent intent = new Intent(this, SumActivity.class);
-            intent.putExtra("num", First.getText().toString());
-            intent.putExtra("num2", Second.getText().toString());
-            startActivity(intent);
+            if(String.valueOf(First.getText()).length()>9 ||String.valueOf(Second.getText()).length()>9 ){
+                Err.setText("Entered numbers are too long(max 9 digits)");
+            }else {
+                goToActivity(SumActivity.class);
+            }
         }else{
             Err.setText("Enter numbers first!");
         }
@@ -45,12 +41,28 @@ public class MainActivity extends AppCompatActivity {
 
     public void Div(View view){
         if(checkField(First)&&checkField(Second)){
-            Intent intent = new Intent(this, DivActivity.class);
-            intent.putExtra("num", First.getText().toString());
-            intent.putExtra("num2", Second.getText().toString());
-            startActivity(intent);
+            if(String.valueOf(First.getText()).length()>9 ||String.valueOf(Second.getText()).length()>9 ){
+                Err.setText("Entered numbers are too long(max 9 digits)");
+            }else {
+                goToActivity(DivActivity.class);
+            }
         }else {
             Err.setText("Enter numbers first!");
         }
+    }
+
+    void goToActivity(Class str){
+        Err.setText("");
+        Intent intent = new Intent(this, str);
+        intent.putExtra("num", First.getText().toString());
+        intent.putExtra("num2", Second.getText().toString());
+        startActivity(intent);
+    }
+
+    boolean checkField(EditText Field){
+        if(Field.getText().toString().length()!=0){
+            return true;
+        }
+        return false;
     }
 }

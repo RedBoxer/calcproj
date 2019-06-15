@@ -46,9 +46,9 @@ public class SumActivity extends AppCompatActivity {
     }
     void Sum(int num, int num2){
         int core=num2;
-        int[] ost=new int[10];
-        int[] first=new int[10];
-        int[] second=new int[10];
+        int[] ost=new int[11];
+        int[] first=new int[11];
+        int[] second=new int[11];
         int l=String.valueOf(num).length();
         int pos = l;
         int result = 0;
@@ -98,7 +98,7 @@ public class SumActivity extends AppCompatActivity {
             Sol.append("\n");
             MakeSpace(1);
             Sol.append(num+"\n");
-            MakeSpace(l - String.valueOf(num2).length());
+            MakeSpace((l - String.valueOf(num2).length())+1);
             Sol.append(num2+"\n");
             for (int i = 0; i < l + 1; i += 1){
                 Sol.append("-");
