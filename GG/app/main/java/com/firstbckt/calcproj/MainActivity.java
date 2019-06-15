@@ -44,10 +44,13 @@ public class MainActivity extends AppCompatActivity {
             if(String.valueOf(First.getText()).length()>9 ||String.valueOf(Second.getText()).length()>9 ){
                 Err.setText("Entered numbers are too long(max 9 digits)");
             }else {
+                if(Integer.valueOf(String.valueOf(First.getText()))==0||Integer.valueOf(String.valueOf(Second.getText()))==0){
+                    Err.setText("Can not divide by zero");
+                }
                 goToActivity(DivActivity.class);
             }
         }else {
-            Err.setText("Enter numbers first!");
+            Err.setText("Enter numbers first");
         }
     }
 
