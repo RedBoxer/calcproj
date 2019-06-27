@@ -1,4 +1,6 @@
 #include "sum.h"
+#include <stdio.h>
+#include "stdafx.h"
 
 void Sum(int num, int num2){
 	int ost[10];

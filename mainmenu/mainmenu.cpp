@@ -1,6 +1,6 @@
 // mainmenu.cpp : Defines the entry point for the console application.
 //
-//#include "div.h"
+#include "div.h"
 #include "sum.h"
 #include <stdlib.h>
 #include <iostream>
