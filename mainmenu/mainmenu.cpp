@@ -12,7 +12,7 @@ int main()
 	int chk=0;
 	while (true){
 		system("cls");
-		printf("Choose operation for numbers(+,/) or 'e' for exit\n>");
+		printf("Choose operation for numbers(+,/,-) or 'e' for exit\n>");
 		fflush(stdin);
 		gets(&choice);
 		if (choice == 'e'){
@@ -35,6 +35,10 @@ int main()
 				Div(num, num2);
 			}
 		}
+		if (choice == '-'){
+				Sub(num, num2);
+			}
+	}
 		else{
 			printf("Input all numbers and try again\n");
 		}
