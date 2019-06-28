@@ -171,5 +171,74 @@ void Disp_Sol(int num, int num2, int result, int*p){
 		}
 	}
 	printf("\n%d\n", result);
+	
+	void Sub(int num, int num2){ 
+           int n = num; 
+           int n2 = num2; 
+           int chk = 0; 
+            if (num < num2){ 
+             n = num2; 
+             n2 = num; 
+              chk = 1; 
+           } 
+          int ost[10]; 
+          int first[10]; 
+          int second[10]; 
+          int l = lenInt(n); 
+          int pos = l; 
+          int result = 0; 
+         first[0] = 0; 
+          SplitToArr(n, first); 
+          for (int i = 1; i <= l; i++){ 
+          ost[i] = 0; 
+          second[i] = 0; 
+          } 
+         SplitToArr(n2, &second[l - lenInt(n2)]); 
+              while (pos != 0){ 
+         if (first[pos] - second[pos] < 0){ 
+             ost[pos - 1] = 1; 
+         result += ((first[pos]+10) - second[pos])*TenPow(l - pos); 
+             first[pos - 1] -= 1; 
+           } 
+              else{ 
+         result += (first[pos] - second[pos]) * TenPow(l - pos); 
+           } 
+              pos--; 
+           } 
+       if (chk == 1){ 
+       result *= -1; 
+           } 
+       Disp_Sub(num, num2, result, &ost[1]); 
+           } 
+
+       void Disp_Sub(int num, int num2, int result, int*p){ 
+           int l = max(lenInt(num), lenInt(num2)); 
+             for (int i = 0; i < l; i += 1){ 
+             if (*(p + i) != 0 && num>num2){ 
+                     printf("*"); 
+             } 
+            else{ 
+                 MakeSpace(1); 
+             } 
+             } 
+                printf("\n"); 
+            if (num < num2){ 
+          MakeSpace(l-lenInt(num)); 
+             } 
+           printf("%d\n", num); 
+           MakeSpace(l - lenInt(num2)); 
+           printf("%d\n", num2); 
+           for (int i = 0; i < l; i += 1){ 
+           printf("-"); 
+             } 
+            printf("\n"); 
+           if (result >= 0){ 
+           MakeSpace(l - lenInt(result)); 
+           } 
+           else{ 
+           MakeSpace((l - lenInt(result*-1)) - 1); 
+            } 
+           printf("%d\n", result); 
+           }
 }
 
