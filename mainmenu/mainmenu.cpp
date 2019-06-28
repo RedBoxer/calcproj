@@ -1,12 +1,12 @@
 // mainmenu.cpp : Defines the entry point for the console application.
 //
-
-#include "stdafx.h"
-
-
+#include "div.h"
+#include "sum.h"
+#include <stdlib.h>
+#include <iostream>
 int main()
 {
-	char choice='1';
+	char choice;
 	int num=0;
 	int num2=0;
 	int chk=0;
@@ -14,10 +14,11 @@ int main()
 		system("cls");
 		printf("Choose operation for numbers(+,/) or 'e' for exit\n>");
 		fflush(stdin);
-		gets(&choice);
+		std::cin >> choice;
 		if (choice == 'e'){
 			exit(0);
 		}
+		putchar (choice);
 		printf("Enter first number:\n>");
 		scanf("%d", &num);
 		printf("Enter second number:\n>");
@@ -38,7 +39,7 @@ int main()
 		else{
 			printf("Input all numbers and try again\n");
 		}
-		getch();
+		getchar();
 	}
 }
 
