@@ -39,6 +39,30 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void Sub(View view){
+        if(checkField(First)&&checkField(Second)){
+            if(String.valueOf(First.getText()).length()>9 ||String.valueOf(Second.getText()).length()>9 ){
+                Err.setText("Entered numbers are too long(max 9 digits)");
+            }else {
+                goToActivity(SubActivity.class);
+            }
+        }else{
+            Err.setText("Enter numbers first!");
+        }
+    }
+
+    public void Mul(View view){
+        if(checkField(First)&&checkField(Second)){
+            if(String.valueOf(First.getText()).length()>9 ||String.valueOf(Second.getText()).length()>9 ){
+                Err.setText("Entered numbers are too long(max 9 digits)");
+            }else {
+                goToActivity(MulActivity.class);
+            }
+        }else{
+            Err.setText("Enter numbers first!");
+        }
+    }
+
     public void Div(View view){
         if(checkField(First)&&checkField(Second)){
             if(String.valueOf(First.getText()).length()>9 ||String.valueOf(Second.getText()).length()>9 ){

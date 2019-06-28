@@ -52,25 +52,33 @@
 
     <Button
         android:id="@+id/Sum"
-        android:layout_width="211dp"
-        android:layout_height="56dp"
+        android:layout_width="208dp"
+        android:layout_height="55dp"
         android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
         android:onClick="Sum"
         android:text="+"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/Second"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/Second"
-        app:layout_constraintTop_toBottomOf="@+id/Second" />
+        app:layout_constraintTop_toBottomOf="@+id/Second"
+        app:layout_constraintVertical_bias="0.019" />
 
     <Button
         android:id="@+id/Div"
-        android:layout_width="209dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="208dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="56dp"
         android:onClick="Div"
         android:text="/"
-        app:layout_constraintEnd_toEndOf="@+id/Sum"
-        app:layout_constraintStart_toStartOf="@+id/Sum"
-        app:layout_constraintTop_toBottomOf="@+id/Sum" />
+        app:layout_constraintBottom_toTopOf="@+id/Error"
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.991" />
 
     <TextView
         android:id="@+id/Error"
@@ -78,15 +86,41 @@
         android:layout_height="56dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="88dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Div"
-        app:layout_constraintVertical_bias="0.186" />
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="208dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="Sub"
+        android:text="-"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/Sum"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/Sum"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.54" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="207dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="8dp"
+        android:onClick="Mul"
+        android:text="*"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/button"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.615" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
