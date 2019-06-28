@@ -1,6 +1,5 @@
-
-
 #include "stdafx.h"
+#include <stdio.h>
 
 int TenPow(int n){
 	int ten = 1;
@@ -36,6 +35,7 @@ void SplitToArr(int num, int*out){
 		temp /= 10;
 	}
 }
+
 
 
 
@@ -241,4 +241,5 @@ void Disp_Sol(int num, int num2, int result, int*p){
            printf("%d\n", result); 
            }
 }
+
 
