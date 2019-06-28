@@ -33,7 +33,7 @@ int main()
 				}
 			}
 			if (choice == '/'){
-				//Div(num, num2);
+				Div(num, num2);
 			}
 		}
 		else{
