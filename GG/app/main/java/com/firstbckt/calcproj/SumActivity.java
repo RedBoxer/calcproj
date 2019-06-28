@@ -22,8 +22,8 @@ public class SumActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sum);
         SolutionDisp=(TextView) findViewById(R.id.Solut);
         BigB=(Button) findViewById(R.id.BigB2);
-        num=Integer.valueOf(getIntent().getStringExtra("num"));
-        num2=Integer.valueOf(getIntent().getStringExtra("num2"));
+        num=Math.abs(Integer.valueOf(getIntent().getStringExtra("num")));
+        num2=Math.abs(Integer.valueOf(getIntent().getStringExtra("num2")));
         if(num<num2){
             chk=num;
             num=num2;

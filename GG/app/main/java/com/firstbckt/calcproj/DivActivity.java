@@ -15,6 +15,8 @@ public class DivActivity extends AppCompatActivity {
     private int num;
     private int num2;
     private int chk=0;
+    private int sign=1;
+    private int sign2=1;
 
 
 
@@ -28,7 +30,15 @@ public class DivActivity extends AppCompatActivity {
         BigB=(Button) findViewById(R.id.BigB);
         num=Integer.valueOf(getIntent().getStringExtra("num"));
         num2=Integer.valueOf(getIntent().getStringExtra("num2"));
+        if(num<0){
+            sign*=-1;
+        }
+        if(num2<0){
+            sign2*=-1;
+        }
         SolutionDisp.setText(String.valueOf(num/num2));
+        num=Math.abs(num);
+        num2=Math.abs(num2);
     }
 
     public void onButton(View view){
@@ -66,11 +76,14 @@ public class DivActivity extends AppCompatActivity {
     void Div(int num,int num2){
         int[] first= new int[11];
         int l = String.valueOf(num).length();
+        if(sign==-1){
+            l++;
+        }
         SplitToArr(num, first);
         int temp = first[1];
         int chk = 0;
         int pos=1;
-        Sol.append("\n"+num+"|"+num2+"\n");
+        Sol.append("\n"+(num*sign)+"|"+(num2*sign2)+"\n");
         while (temp<num2){
             pos++;
             temp = temp * 10 + first[pos];
@@ -116,7 +129,7 @@ public class DivActivity extends AppCompatActivity {
         }
         MakeSpace(l - String.valueOf(second).length());
         Sol.append(second+"\n");
-        Sol.append("\n\nResult: "+ first[0]);
+        Sol.append("\n\nResult: "+ (first[0]*sign*sign2));
         if (second != 0){
             Sol.append("+"+second+"/"+num2+"\n");
         }
